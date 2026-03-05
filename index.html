@@ -28,7 +28,7 @@
             position: relative;
         }
 
-        /* 艺术字标题逻辑 */
+        /* 艺术字标题 */
         .hero-title {
             font-size: 5rem;
             font-weight: 800;
@@ -42,30 +42,33 @@
         h1 { font-size: 3.2rem; margin-bottom: 20px; letter-spacing: -1px; background: linear-gradient(180deg, #fff 0%, #a1a1a6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         p.sub-title { font-size: 1.4rem; color: #a1a1a6; margin-bottom: 30px; line-height: 1.4; }
 
-        /* 3. 右上角“加入我们”按钮 */
-        .join-us-btn {
+        /* 3. 导航按钮组 */
+        .nav-group {
             position: fixed;
             top: 30px;
             right: 40px;
             z-index: 999;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-btn {
             padding: 12px 24px;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: #fff;
             border-radius: 25px;
-            text-decoration: none;
             backdrop-filter: blur(15px);
             font-size: 0.9rem;
             font-weight: 500;
             transition: all 0.3s ease;
             cursor: pointer;
         }
-        .join-us-btn:hover {
-            background: #fff;
-            color: #000;
-        }
+        .nav-btn:hover { background: #fff; color: #000; }
+        .nav-btn.primary { background: #0071e3; border-color: #0071e3; }
+        .nav-btn.primary:hover { background: #0077ed; color: #fff; }
 
-        /* 4. Apple 风格详情按钮 */
+        /* 4. 内容详情按钮 */
         .details-btn {
             color: #0071e3;
             font-size: 1.2rem;
@@ -76,9 +79,9 @@
         .details-btn:hover { text-decoration: underline; }
         .details-btn::after { content: " >"; }
 
-        /* 5. 底部页脚样式 */
+        /* 5. 底部页脚 */
         footer {
-            height: 40vh;
+            height: 50vh;
             background: #000;
             display: flex;
             flex-direction: column;
@@ -87,32 +90,21 @@
             scroll-snap-align: end;
             border-top: 1px solid #1c1c1e;
         }
-
-        .footer-join-btn {
+        .footer-btns { display: flex; gap: 20px; margin-bottom: 40px; }
+        .footer-btn {
             background: #1c1c1e;
             color: #fff;
-            padding: 18px 45px;
+            padding: 18px 35px;
             border-radius: 30px;
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 40px;
+            font-size: 1.1rem;
             border: 1px solid #333;
             cursor: pointer;
             transition: all 0.3s;
         }
-        .footer-join-btn:hover {
-            background: #fff;
-            color: #000;
-            transform: translateY(-5px);
-        }
+        .footer-btn:hover { background: #fff; color: #000; transform: translateY(-5px); }
+        .copyright { color: #424245; font-size: 0.85rem; }
 
-        .copyright {
-            color: #424245;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-        }
-
-        /* 6. 弹出层 (Modal) 样式 */
+        /* 6. 弹窗样式 */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -124,11 +116,10 @@
             z-index: 1000;
             backdrop-filter: blur(20px);
         }
-
         .modal-content {
             background: #1c1c1e;
             width: 90%;
-            max-width: 800px;
+            max-width: 850px;
             max-height: 85vh;
             padding: 50px;
             border-radius: 28px;
@@ -136,24 +127,24 @@
             position: relative;
             border: 1px solid #333;
         }
-
         .close-btn { position: absolute; top: 25px; right: 30px; font-size: 32px; cursor: pointer; color: #86868b; }
 
-        /* 弹窗内容样式 */
-        .modal-body h2 { color: #fff; font-size: 2.2rem; margin-bottom: 25px; text-align: left; }
-        .modal-body h3 { color: #0071e3; margin: 25px 0 12px; font-size: 1.4rem; }
-        .modal-body p { color: #d2d2d7; line-height: 1.8; margin-bottom: 18px; text-align: left; font-size: 1.1rem; }
-        .modal-body ul { margin-bottom: 25px; padding-left: 20px; color: #d2d2d7; }
-        .modal-body li { margin-bottom: 12px; text-align: left; }
+        /* 文本解析样式 */
+        .modal-body { text-align: left; }
+        .modal-body h2 { color: #fff; font-size: 2.2rem; margin-bottom: 25px; }
+        .modal-body p { color: #d2d2d7; line-height: 1.8; margin-bottom: 20px; font-size: 1.1rem; white-space: pre-line; }
+        .modal-body b { color: #fff; }
         
         .contact-card { text-align: center; }
-        .xhs-id { font-size: 2.2rem; color: #ff453a; margin: 20px 0 10px; font-weight: 800; }
-        .contact-box { background: #2c2c2e; padding: 25px; border-radius: 20px; text-align: left; margin-top: 30px; }
+        .xhs-id { font-size: 2.2rem; color: #ff453a; margin: 20px 0; font-weight: 800; }
     </style>
 </head>
 <body>
 
-    <div class="join-us-btn" onclick="openModal('join')">加入我们</div>
+    <div class="nav-group">
+        <div class="nav-btn" onclick="openModal('logic_full')">申请逻辑（具体）</div>
+        <div class="nav-btn primary" onclick="openModal('join')">加入我们</div>
+    </div>
 
     <section>
         <div class="hero-title">申请靠的是逻辑</div>
@@ -168,41 +159,38 @@
 
     <section>
         <h1>标化6062年了，别再交托福</h1>
-        <p class="sub-title">提交托福的那一刻，你就主动进入了“ESL申请者”的劣势池。</p>
+        <p class="sub-title">一旦提交托福，你就在招生官眼里被打上了“ESL”的标签。</p>
         <div class="details-btn" onclick="openModal('toefl')">查看母语豁免逻辑</div>
     </section>
 
     <section>
         <h1>AP 的保险线与 IB 的对冲</h1>
-        <p class="sub-title">AP 8门5分之后差距不大，但 IB 的预估分需要额外背书。</p>
+        <p class="sub-title">AP 8门5分之后差距不大，IB 生需要额外的学术背书。</p>
         <div class="details-btn" onclick="openModal('ap-ib')">查看学术博弈策略</div>
     </section>
 
     <section>
         <h1>Waitlist 绝不是硬等</h1>
-        <p class="sub-title">Love Letter 没用。你需要的是转正的核心材料。</p>
-        <div class="details-btn" onclick="openModal('waitlist')">查看转正核心技巧</div>
-    </section>
-
-    <section>
-        <h1>夏校真相与“核心人设”</h1>
-        <p class="sub-title">不要花钱买个开心。AO 需要的是一个清晰、好写的 Reflection。</p>
-        <div class="details-btn" onclick="openModal('activities')">查看活动避坑指南</div>
+        <p class="sub-title">单纯的 Love Letter 没用。你需要让招生官有理由去 Committee 帮你翻案。</p>
+        <div class="details-btn" onclick="openModal('waitlist')">查看转转正技巧</div>
     </section>
 
     <section>
         <h1>文书：拒绝自我感动的成长</h1>
-        <p class="sub-title">PS 是要让 AO 看到你是如何成为你的。</p>
+        <p class="sub-title">PS 不是写小说。要让 AO 直接在文中看到你是谁和你怎样成为你。</p>
         <div class="details-btn" onclick="openModal('essay')">查看文书提纲避坑</div>
     </section>
 
     <section>
         <h1>Fake it until you make it.</h1>
-        <p class="sub-title">只要逻辑正确，Top 30 只是保底。</p>
+        <p class="sub-title">只要逻辑正确，Top 30 只是保底。<br>但核心是“Make it”，进了名校不是终点，而是不自欺欺人的开始。</p>
     </section>
 
     <footer>
-        <div class="footer-join-btn" onclick="openModal('join')">加入我们</div>
+        <div class="footer-btns">
+            <div class="footer-btn" onclick="openModal('logic_full')">申请逻辑（具体）</div>
+            <div class="footer-btn" style="background:#0071e3; border:none;" onclick="openModal('join')">加入我们</div>
+        </div>
         <div class="copyright">© apply-logic.vercel.app. All rights reserved.</div>
     </footer>
 
@@ -214,75 +202,89 @@
     </div>
 
     <script>
-        const data = {
-    'join': `
-        <div class="contact-card">
-            <h2>底层逻辑 · 降维打击</h2>
-            <p>我们不提供中介式的代理服务，我们只输出能改变结果的申请逻辑。</p>
-            <div class="xhs-id">maxzhang07</div>
-            <p style="color: #86868b;">(个人号：maxverstappen13)</p>
-            <div class="contact-box">
-                <ul style="margin-bottom: 0; color: #d2d2d7;">
-                    <li><strong>策略定制：</strong>纯外籍/海高视角的母语豁免实操</li>
-                    <li><strong>架构重塑：</strong>基于 Committee 决策机制的文书架构</li>
-                    <li><strong>资产配置：</strong>拒绝“花钱买开心”的活动资产优化</li>
-                </ul>
-            </div>
-        </div>
-    `,
-    'toefl': `
-        <h2>母语豁免：跳出 ESL 的“二等池”</h2>
-        <p><strong>底层逻辑：</strong>一旦提交托福，你就在潜意识里告诉招生官：我是一个“英语非母语的申请者（ESL）”。即便你考 118，你也只是“英语不错的外国人”。</p>
-        <h3>执行路径：</h3>
-        <ul>
-            <li><strong>身份重定义：</strong>依据法律（eCFR § 300.29），母语是你在学习环境中“最常使用”的语言。在全英文教学（MOI）环境下超过3年，你完全符合 Native 逻辑。</li>
-            <li><strong>系统降维：</strong>在 Common App 直接勾选 English 为 First Language。这不仅豁免了托福，更重要的是在 AO 脑中建立“Native Speaker”的初始认知。</li>
-        </ul>
-        <p><span class="tag-red">风险对冲：</span>此操作必须配合 <strong>SAT 阅读 730+</strong> 或 <strong>AP Lang 4分+</strong>，形成完整的学术诚信闭环。</p>
-    `,
-    'ap-ib': `
-        <h2>学术博弈：IB 预估分是一场豪赌</h2>
-        <p><strong>现状分析：</strong>AO 深知国内 IB 学校预估分“通胀”的现状。一个预估 43 分的学生，如果没有外部标准化考试支撑，含金量甚至不如一个 AP 8门5分的申请者。</p>
-        <h3>学术对冲策略：</h3>
-        <ul>
-            <li><strong>跨体系背书：</strong>强烈建议 IB 同学在 11 年级考 3-4 门与专业相关的 AP。这是为了证明你的学术能力是“跨体系标准化”的，而不是学校“送”的分。</li>
-            <li><strong>有效区间：</strong>8 门 5 分是 Top 20 的入场券。超过 10 门后边际收益极低，应立刻转向学术深度（如科研/Publication）。</li>
-        </ul>
-        <p><strong>结论：</strong>学术能力是用来“过初筛”的。过了线，再多一分都是浪费时间。</p>
-    `,
-    'waitlist': `
-        <h2>Waitlist 转正：提供“翻案”的核武器</h2>
-        <p><strong>核心痛点：</strong>Love Letter 没用，是因为你只是在表达情绪。招生官需要的是能说服合议庭（Committee）的**客观事实变动**。</p>
-        <h3>转正三阶策略：</h3>
-        <ol>
-            <li><strong>提供“新弹药”：</strong>12 年级下学期更强的 GPA、新获得的重量级奖项（如 AMC 前 1%）或科研论文的正式发表。</li>
-            <li><strong>校友背书：</strong>寻找该校在读且具有影响力的学长/学姐写一封 Peer Recommendation。</li>
-            <li><strong>精准资源匹配：</strong>明确指出你与该校某位教授最新研究方向的契合点。</li>
-        </ol>
-        <p>你要给招生官一个借口，让他觉得不录你，是学校在学术资产上的损失。</p>
-    `,
-    'activities': `
-        <h2>活动配置：拒绝“中产焦虑式”堆砌</h2>
-        <p><strong>避坑指南：</strong>凡是能花钱买到录取的夏校，在申请中基本一文不值。AO 现在更看重的是“核心人设（Core Identity）”。</p>
-        <h3>核心逻辑：</h3>
-        <ul>
-            <li><strong>标签化：</strong>如果 AO 看完你的材料，三秒钟内总结不出“你是谁”（例如：一个懂社会学的程序员），那你的活动做得再广也是失败的。</li>
-            <li><strong>减法原则：</strong>剔除掉所有不符合这个标签的杂碎活动。减法做得越狠，人设越稳。</li>
-        </ul>
-        <p><strong>金句：</strong>不要为了填满 10 个 Activity 栏位而去做活动，要为了定义你自己而去做活动。</p>
-    `,
-    'essay': `
-        <h2>文书：拒绝“自我感动”的成长</h2>
-        <p><strong>文书不是自传，是“人才说明书”。</strong></p>
-        <h3>避坑要点：</h3>
-        <ul>
-            <li><strong>不要卖惨：</strong>花 80% 篇幅写困难，会让 AO 觉得你负能量且抗压差。</li>
-            <li><strong>不要写小说：</strong>追求辞藻而忽略了你的 Role（在这个事件中你到底做了什么）。</li>
-            <li><strong>感悟要落地：</strong>不要谈空洞的哲学。AO 想看到的是通过这件事，你如何改变了你对待世界的方式。</li>
-        </ul>
-        <p><strong>判别标准：</strong>好的 PS 应该让 AO 在读完后想立刻邀请你喝杯咖啡，而不是想把你送去心理咨询。</p>
-    `
-};
+       const data = {
+            'logic_full': `
+                <div style="text-align: left;">
+                    <h2 style="font-size: 2.2rem; margin-bottom: 25px;">申请逻辑（具体）</h2>
+                    <p style="white-space: pre-line;">看到很多同学包括中介对申请认知上的误区，决定写一些出来做个分享，希望能帮助一些学生。
+
+                    <b>1. 标化5052年了，不要交托福了。</b>不建议交托福的主要逻辑是这是一个ESL考试，而有明文规定“如果英文是first language就不用交托福成绩”所以从逻辑上，一旦提交托福，你在招生官眼里就是一个“ESL applicant”，已经有了劣势。即使托福满分也说明不了任何能力，不会有任何“加分”。
+
+                    都知道AP重要，只是很多人不知道多“好”算“好”。AP的保险线是8门5，这之上差距不大。AP这一点上其实读IB的同学们比较吃亏，因为IB预估分在招生官眼里是属于gpa这块的，只有最后的大考分数相当于ap。然而大多人申请的时候只有预估分，所以准备IB的同学还是建议自己校外考几门AP。
+
+                    <b>2. Waitlist很多人误以为waitlist就是硬等</b>，其实这是错误的思想。Waitlist转正的核心是“补材料，让招生官看到后帮你提交到committee” 每一环节都非常重要这里要注意，单纯的love letter是没有用的—当committe重审材料，光凭一份对学校的一腔热爱是没法让你转正的。
+
+                    <b>3. 夏校很多人以为夏校是加分项</b>，其实不然。大多数夏校只能做一个学习知识的体验，并不会在申请上有任何加分 （极端例子如UChicago夏校后的ed0除外）
+
+                    <b>4. 竞赛最顶级的竞赛</b>，如imo等是有用的，不过这部分学生大部分也会走pre-admit这条路。其余的竞赛如john locke等都没用。现在各类竞赛商业化都越来越严重，大部分只是“花钱买个开心”
+
+                    <b>3. 活动无核心</b>。有一些学生会误认为活动做的广一点杂一点，或者只做感兴趣的就好。事实上，活动和ps要共享一个“核心人设”，这样才方便AO在写材料的reflection时不用花太多力气。AO要看的材料很多，我们让ta在看材料写感想时越方便，我们进的几率才会更大。
+
+                    先放一下ps的核心逻辑：<b>要让AO能直接在文中看到你是谁和怎样成为你。</b>
+
+                    围绕这个核心逻辑，我们要搭建一个frame/提纲。一个常见的frame是“自我改变/成长”。这里对此frame做个讨论。通常成长的写法是：以前有个问题a，后面经过事件b，得到感悟c，改变/改善了问题a。这个框架本身是符合ps的核心逻辑的，所以没有大的问题，不过很多applicant会在运用这个框架时“写歪”，导致偏离主题，比如：
+
+                    1. 花过多篇幅写问题a。很多时候作者在写问题时会陷入“自我感动”，认为自己很可怜，好像人人都可以和自己共情。事实上，在问题上过多着墨会让招生官认为你在抱怨，让整篇文书读起来非常负面，从而影响招生官对你的reflection。
+
+                    2. 写事件b不点题。很多时候学生会致力于让事件读起来“跌宕起伏。” 精彩的事件固然好，然而不清晰阐述这个事件中你的role以及这个事对你的成长造成了了多大影响，那文书就变成了一篇小说。
+
+                    3. 感悟不深刻。在文书中，招生官希望看到的感悟并不是什么晦涩的哲学思想或者高深的数学定理。很多学生铺垫了一大堆，引出一些“高大上”的感悟，结果忘记点出这感悟和自己到底有什么关系。
+
+                    一言以避之，ps无论写什么框架，一定要回到“自己”。今天分析了一个常见的ps frame。可以comment出你目前构思的frame，我们一起来改进。
+
+                    每年都有无数优秀的申请者因为申请逻辑的错误被top 30拒绝；相应的，也有很多本身背景不够好的申请者通过遵循正确的逻辑而进入及前三十。事实上，只要逻辑正确，任何人都可以拿top 30当保底，无论背景如何。这份逻辑我可以给到你。
+
+                    有一句话叫“Fake it until you make it”。这里的核心是要“make it”，不然前面的一切都是毫无意义。如果只是进了一个top 30就认为自己“足够优秀”，可以不进步了，那这无疑是自欺欺人。人最可怕的就是自己骗自己。</p>
+                </div>
+            `,
+            'toefl': `
+                <h2>母语豁免：跳出 ESL 劣势池</h2>
+                <p><b>为什么不要交托福？</b></p>
+                <p>在招生官的评价体系中，一旦你提交了托福成绩，你就自动被归类为“English as a Second Language (ESL)”申请者。这意味着 AO 会下意识地降低对你人文、写作及逻辑表达的预期。</p>
+                <p><b>法律与规则支撑：</b></p>
+                <p>美国多数高校有明文规定，如果你的 Medium of Instruction (MOI) 是英语，或者你定义英语为 First Language，你可以完全豁免托福。这是一个逻辑层面的“身份降维打击”——你考 118 分也只是个英语好的外国人，但不考托福且展现出强大的 SAT/ACT 阅读能力，你就是一个 <b>Native Speaker</b>。</p>
+                <p><span class="tag-red">*核心博弈：</span>不交托福不是为了省事，而是为了在 CA 系统里勾选 First Language 是 English，从而在底层逻辑上抹除“外国学生”的刻板印象。</p>
+            `,
+            'ap-ib': `
+                <h2>学术对冲：IB 生的“自救”指南</h2>
+                <p><b>为什么 IB 生需要考 AP？</b></p>
+                <p>在申请季，IB 同学手里只有“预估分”。在 AO 眼里，预估分属于 GPA 范畴，受学校声誉和打分习惯影响极大，存在严重的“注水感”。</p>
+                <p><b>AP 的背书作用：</b></p>
+                <p>AP 成绩是全球标准化的，不受学校老师主观影响。如果你拿着 40+ 的 IB 预估分，同时提交 3-4 门相关的 <b>AP 5分</b>，你是在告诉 AO：我的学术水平不是学校老师给的面子，而是实打实的标准化能力。这就是为什么 8 门 AP 5 分是 Top 20 的保险线，多一门无用，少一门则厚度不足。</p>
+            `,
+            'waitlist': `
+                <h2>Waitlist 转正：让 AO 有“弹药”去翻案</h2>
+                <p><b>Love Letter 的无效性：</b></p>
+                <p>当 Committee（评审委员会）重新审议 Waitlist 名单时，他们面对的是几百份几乎同样“热爱学校”的信件。光靠表忠心是无法让他们说服院长给你发录取通知书的。</p>
+                <p><b>如何补材料？</b></p>
+                <p>你需要提供<b>实质性的更新</b>。例如：12 年级下学期更强劲的 GPA（证明你没掉链子）、最新的重量级科研进展、或者你在提交申请后获得的省/国家级奖项。你要做的是给那个“支持你”的招生官提供新弹药，让他能拍着桌子对其他人说：“看，这个学生比三个月前更强了，不录是我们的损失。”</p>
+            `,
+            'activities': `
+                <h2>活动避坑：拒绝“花钱买开心”</h2>
+                <p><b>夏校与竞赛的真相：</b></p>
+                <p>除了极个别极端案例（如芝大夏校、SSP、TASP），90% 的夏校只是大学的“创收项目”。如果你只是去上课、修学分，那它对申请的加分几乎为零。竞赛也是如此，John Locke 等商业化竞赛现在的含金量正在迅速稀释，因为 AO 知道这些竞赛背后有多少“指导”成分。</p>
+                <p><b>核心人设 (Core Identity)：</b></p>
+                <p>活动不是越多越好，而是要和你的 PS 共享一个核心。你要做的不是展示你有多忙，而是要让 AO 在写 Reflection（评价单）时，能用一句话精准描述你。减法做得越狠，人设越稳。</p>
+            `,
+            'essay': `
+                <h2>文书提纲避坑：回归“自己”</h2>
+                <p><b>三大致命误区：</b></p>
+                <ol>
+                    <li><b>自我感动：</b>花 60% 以上篇幅写困难多大、环境多苦。这会让文书变得非常 Negative（负面）。记住，AO 要招的是未来的领袖，不是受害者。</li>
+                    <li><b>角色缺失：</b>在事件描写中把自己写成了旁观者。你要清晰阐述：在那一刻，<b>你</b>做了什么决策？<b>你</b>承担了什么后果？</li>
+                    <li><b>感悟悬浮：</b>强行升华到哲学高度，却不点出这和你的生活轨迹有什么关系。最好的感悟应该是“落地”的——通过这件事，我如何改变了看待世界/他人的方式。</li>
+                </ol>
+                <p><b>一言以蔽之：</b>PS 的终极目标是让 AO 读完后想立刻认识你，而不是同情你或者觉得你博学。</p>
+            `,
+            'join': `
+                <div class="contact-card">
+                    <h2>底层逻辑 · 降维打击</h2>
+                    <p>我们不提供中介式的代理服务，我们只输出能改变结果的申请逻辑。</p>
+                    <div class="xhs-id">maxzhang07</div>
+                    <p style="color: #86868b; font-size: 1.1rem;">(个人号：maxverstappen13)</p>
+                </div>
+            `
+        };
 
         function openModal(key) {
             document.getElementById('modalBody').innerHTML = data[key];
@@ -301,4 +303,3 @@
     </script>
 </body>
 </html>
-
