@@ -215,45 +215,74 @@
 
     <script>
         const data = {
-            'join': `
-                <div class="contact-card">
-                    <h2>底层逻辑 · 降维打击</h2>
-                    <p>我们不提供中介式的代理服务，我们只输出能改变结果的申请逻辑。</p>
-                    <div class="xhs-id">maxzhang07</div>
-                    <p style="color: #86868b;">(个人号：maxverstappen13)</p>
-                    <div class="contact-box">
-                        <ul style="margin-bottom: 0; color: #d2d2d7;">
-                            <li>纯外籍/海高视角的母语豁免实操</li>
-                            <li>基于 Committee 决策机制的文书架构</li>
-                            <li>拒绝“花钱买开心”的活动资产配置</li>
-                        </ul>
-                    </div>
-                </div>
-            `,
-            'toefl': `
-                <h2>打破“中国人必考托福”的刻板印象</h2>
-                <p><strong>核心逻辑：</strong>一旦提交托福，你就在潜意识里告诉招生官：我是一个“英语非母语的申请者（ESL）”。</p>
-                <p>符合条件的同学应在 CA 系统直接勾选 English 为 First Language，跳出内卷池。</p>
-                <p><span class="tag-red">*风险提示：</span>此策略需 SAT/ACT 阅读 730+ 支撑。</p>
-            `,
-            'ap-ib': `
-                <h2>学术硬实力：如何定义“好”？</h2>
-                <p><strong>AP 体系：</strong>8 门 5 分是 Top 20 的入场券。</p>
-                <p><strong>IB 体系对冲：</strong>建议 IB 学生校外自考 3-4 门 AP 作为“真实学术能力”的背书。</p>
-            `,
-            'waitlist': `
-                <h2>Waitlist 转正：提供“翻案”的武器</h2>
-                <p>转正的核心不是表忠心，而是<strong>补材料</strong>。你需要给招生官一个“借口”去 Committee 帮你翻案。</p>
-            `,
-            'activities': `
-                <h2>夏校与竞赛：别花钱买开心</h2>
-                <p>凡是能花钱买到录取的夏校，在申请中基本零加分。AO 现在更看重的是“核心人设 (Core Identity)”。</p>
-            `,
-            'essay': `
-                <h2>文书：拒绝“自我感动”的成长</h2>
-                <p>好的 PS 应该让 AO 在读完后想立刻邀请你喝杯咖啡，而不是想把你送去心理咨询。</p>
-            `
-        };
+    'join': `
+        <div class="contact-card">
+            <h2>底层逻辑 · 降维打击</h2>
+            <p>我们不提供中介式的代理服务，我们只输出能改变结果的申请逻辑。</p>
+            <div class="xhs-id">maxzhang07</div>
+            <p style="color: #86868b;">(个人号：maxverstappen13)</p>
+            <div class="contact-box">
+                <ul style="margin-bottom: 0; color: #d2d2d7;">
+                    <li><strong>策略定制：</strong>纯外籍/海高视角的母语豁免实操</li>
+                    <li><strong>架构重塑：</strong>基于 Committee 决策机制的文书架构</li>
+                    <li><strong>资产配置：</strong>拒绝“花钱买开心”的活动资产优化</li>
+                </ul>
+            </div>
+        </div>
+    `,
+    'toefl': `
+        <h2>母语豁免：跳出 ESL 的“二等池”</h2>
+        <p><strong>底层逻辑：</strong>一旦提交托福，你就在潜意识里告诉招生官：我是一个“英语非母语的申请者（ESL）”。即便你考 118，你也只是“英语不错的外国人”。</p>
+        <h3>执行路径：</h3>
+        <ul>
+            <li><strong>身份重定义：</strong>依据法律（eCFR § 300.29），母语是你在学习环境中“最常使用”的语言。在全英文教学（MOI）环境下超过3年，你完全符合 Native 逻辑。</li>
+            <li><strong>系统降维：</strong>在 Common App 直接勾选 English 为 First Language。这不仅豁免了托福，更重要的是在 AO 脑中建立“Native Speaker”的初始认知。</li>
+        </ul>
+        <p><span class="tag-red">风险对冲：</span>此操作必须配合 <strong>SAT 阅读 730+</strong> 或 <strong>AP Lang 4分+</strong>，形成完整的学术诚信闭环。</p>
+    `,
+    'ap-ib': `
+        <h2>学术博弈：IB 预估分是一场豪赌</h2>
+        <p><strong>现状分析：</strong>AO 深知国内 IB 学校预估分“通胀”的现状。一个预估 43 分的学生，如果没有外部标准化考试支撑，含金量甚至不如一个 AP 8门5分的申请者。</p>
+        <h3>学术对冲策略：</h3>
+        <ul>
+            <li><strong>跨体系背书：</strong>强烈建议 IB 同学在 11 年级考 3-4 门与专业相关的 AP。这是为了证明你的学术能力是“跨体系标准化”的，而不是学校“送”的分。</li>
+            <li><strong>有效区间：</strong>8 门 5 分是 Top 20 的入场券。超过 10 门后边际收益极低，应立刻转向学术深度（如科研/Publication）。</li>
+        </ul>
+        <p><strong>结论：</strong>学术能力是用来“过初筛”的。过了线，再多一分都是浪费时间。</p>
+    `,
+    'waitlist': `
+        <h2>Waitlist 转正：提供“翻案”的核武器</h2>
+        <p><strong>核心痛点：</strong>Love Letter 没用，是因为你只是在表达情绪。招生官需要的是能说服合议庭（Committee）的**客观事实变动**。</p>
+        <h3>转正三阶策略：</h3>
+        <ol>
+            <li><strong>提供“新弹药”：</strong>12 年级下学期更强的 GPA、新获得的重量级奖项（如 AMC 前 1%）或科研论文的正式发表。</li>
+            <li><strong>校友背书：</strong>寻找该校在读且具有影响力的学长/学姐写一封 Peer Recommendation。</li>
+            <li><strong>精准资源匹配：</strong>明确指出你与该校某位教授最新研究方向的契合点。</li>
+        </ol>
+        <p>你要给招生官一个借口，让他觉得不录你，是学校在学术资产上的损失。</p>
+    `,
+    'activities': `
+        <h2>活动配置：拒绝“中产焦虑式”堆砌</h2>
+        <p><strong>避坑指南：</strong>凡是能花钱买到录取的夏校，在申请中基本一文不值。AO 现在更看重的是“核心人设（Core Identity）”。</p>
+        <h3>核心逻辑：</h3>
+        <ul>
+            <li><strong>标签化：</strong>如果 AO 看完你的材料，三秒钟内总结不出“你是谁”（例如：一个懂社会学的程序员），那你的活动做得再广也是失败的。</li>
+            <li><strong>减法原则：</strong>剔除掉所有不符合这个标签的杂碎活动。减法做得越狠，人设越稳。</li>
+        </ul>
+        <p><strong>金句：</strong>不要为了填满 10 个 Activity 栏位而去做活动，要为了定义你自己而去做活动。</p>
+    `,
+    'essay': `
+        <h2>文书：拒绝“自我感动”的成长</h2>
+        <p><strong>文书不是自传，是“人才说明书”。</strong></p>
+        <h3>避坑要点：</h3>
+        <ul>
+            <li><strong>不要卖惨：</strong>花 80% 篇幅写困难，会让 AO 觉得你负能量且抗压差。</li>
+            <li><strong>不要写小说：</strong>追求辞藻而忽略了你的 Role（在这个事件中你到底做了什么）。</li>
+            <li><strong>感悟要落地：</strong>不要谈空洞的哲学。AO 想看到的是通过这件事，你如何改变了你对待世界的方式。</li>
+        </ul>
+        <p><strong>判别标准：</strong>好的 PS 应该让 AO 在读完后想立刻邀请你喝杯咖啡，而不是想把你送去心理咨询。</p>
+    `
+};
 
         function openModal(key) {
             document.getElementById('modalBody').innerHTML = data[key];
@@ -272,3 +301,4 @@
     </script>
 </body>
 </html>
+
