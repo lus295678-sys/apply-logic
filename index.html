@@ -55,18 +55,17 @@
             border-radius: 25px;
             text-decoration: none;
             backdrop-filter: blur(15px);
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             cursor: pointer;
         }
         .join-us-btn:hover {
             background: #fff;
             color: #000;
-            transform: scale(1.05);
         }
 
-        /* 4. Apple 风格按钮 */
+        /* 4. Apple 风格详情按钮 */
         .details-btn {
             color: #0071e3;
             font-size: 1.2rem;
@@ -77,7 +76,43 @@
         .details-btn:hover { text-decoration: underline; }
         .details-btn::after { content: " >"; }
 
-        /* 5. 弹出层 (Modal) 样式 */
+        /* 5. 底部页脚样式 */
+        footer {
+            height: 40vh;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: end;
+            border-top: 1px solid #1c1c1e;
+        }
+
+        .footer-join-btn {
+            background: #1c1c1e;
+            color: #fff;
+            padding: 18px 45px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 40px;
+            border: 1px solid #333;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .footer-join-btn:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            color: #424245;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* 6. 弹出层 (Modal) 样式 */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -100,28 +135,20 @@
             overflow-y: auto;
             position: relative;
             border: 1px solid #333;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        .close-btn { position: absolute; top: 25px; right: 30px; font-size: 32px; cursor: pointer; color: #86868b; transition: 0.2s; }
-        .close-btn:hover { color: #fff; }
+        .close-btn { position: absolute; top: 25px; right: 30px; font-size: 32px; cursor: pointer; color: #86868b; }
 
-        /* 弹窗内文字排版 */
-        .modal-body h2 { color: #fff; font-size: 2.2rem; margin-bottom: 25px; text-align: left; letter-spacing: -0.5px; }
+        /* 弹窗内容样式 */
+        .modal-body h2 { color: #fff; font-size: 2.2rem; margin-bottom: 25px; text-align: left; }
         .modal-body h3 { color: #0071e3; margin: 25px 0 12px; font-size: 1.4rem; }
         .modal-body p { color: #d2d2d7; line-height: 1.8; margin-bottom: 18px; text-align: left; font-size: 1.1rem; }
-        .modal-body strong { color: #fff; font-weight: 600; }
         .modal-body ul { margin-bottom: 25px; padding-left: 20px; color: #d2d2d7; }
-        .modal-body li { margin-bottom: 12px; text-align: left; line-height: 1.6; }
+        .modal-body li { margin-bottom: 12px; text-align: left; }
         
-        .tag-red { color: #ff453a; font-weight: bold; }
-        .tag-green { color: #32d74b; font-weight: bold; }
-
-        /* 联系卡片专用样式 */
         .contact-card { text-align: center; }
-        .xhs-id { font-size: 2.2rem; color: #ff453a; margin: 25px 0 10px; font-weight: 800; letter-spacing: 1px; }
-        .contact-info-box { background: #2c2c2e; padding: 25px; border-radius: 20px; text-align: left; margin-top: 30px; }
-        blockquote { background: #2c2c2e; border-left: 4px solid #0071e3; padding: 15px; margin: 15px 0; font-style: italic; color: #d2d2d7; }
+        .xhs-id { font-size: 2.2rem; color: #ff453a; margin: 20px 0 10px; font-weight: 800; }
+        .contact-box { background: #2c2c2e; padding: 25px; border-radius: 20px; text-align: left; margin-top: 30px; }
     </style>
 </head>
 <body>
@@ -136,7 +163,7 @@
 
     <section>
         <h1>申请逻辑的进化</h1>
-        <p class="sub-title">看到很多同学和中介的认知误区，我决定分享一些真实的底层逻辑。<br>希望这些实战经验能帮到你。</p>
+        <p class="sub-title">看到很多同学和中介的认知误区，我决定分享一些真实的底层逻辑。</p>
     </section>
 
     <section>
@@ -153,7 +180,7 @@
 
     <section>
         <h1>Waitlist 绝不是硬等</h1>
-        <p class="sub-title">Love Letter 没用。你需要的是能让招生官把你推回 Committee 的新材料。</p>
+        <p class="sub-title">Love Letter 没用。你需要的是转正的核心材料。</p>
         <div class="details-btn" onclick="openModal('waitlist')">查看转正核心技巧</div>
     </section>
 
@@ -165,14 +192,19 @@
 
     <section>
         <h1>文书：拒绝自我感动的成长</h1>
-        <p class="sub-title">PS 不是写小说，也不是写感悟。它是要让 AO 看到你是如何成为你的。</p>
+        <p class="sub-title">PS 是要让 AO 看到你是如何成为你的。</p>
         <div class="details-btn" onclick="openModal('essay')">查看文书提纲避坑</div>
     </section>
 
-    <section style="background: #000;">
+    <section>
         <h1>Fake it until you make it.</h1>
-        <p class="sub-title">只要逻辑正确，Top 30 只是保底。<br>但核心是“Make it”，进了名校不是终点，而是不自欺欺人的开始。</p>
+        <p class="sub-title">只要逻辑正确，Top 30 只是保底。</p>
     </section>
+
+    <footer>
+        <div class="footer-join-btn" onclick="openModal('join')">加入我们</div>
+        <div class="copyright">© apply-logic.vercel.app. All rights reserved.</div>
+    </footer>
 
     <div id="modalOverlay" class="modal-overlay" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
@@ -182,17 +214,15 @@
     </div>
 
     <script>
-        // 这里是所有内容的数据库
         const data = {
             'join': `
                 <div class="contact-card">
                     <h2>底层逻辑 · 降维打击</h2>
                     <p>我们不提供中介式的代理服务，我们只输出能改变结果的申请逻辑。</p>
                     <div class="xhs-id">maxzhang07</div>
-                    <p style="color: #86868b; font-size: 1.1rem;">(个人号：maxverstappen13)</p>
-                    <div class="contact-info-box">
-                        <p style="font-size: 1rem; color: #fff; margin-bottom: 10px;"><strong>获取深度支持：</strong></p>
-                        <ul style="margin-bottom: 0;">
+                    <p style="color: #86868b;">(个人号：maxverstappen13)</p>
+                    <div class="contact-box">
+                        <ul style="margin-bottom: 0; color: #d2d2d7;">
                             <li>纯外籍/海高视角的母语豁免实操</li>
                             <li>基于 Committee 决策机制的文书架构</li>
                             <li>拒绝“花钱买开心”的活动资产配置</li>
@@ -203,58 +233,32 @@
             'toefl': `
                 <h2>打破“中国人必考托福”的刻板印象</h2>
                 <p><strong>核心逻辑：</strong>一旦提交托福，你就在潜意识里告诉招生官：我是一个“英语非母语的申请者（ESL）”。</p>
-                <h3>法律依据 eCFR § 300.29：</h3>
-                <blockquote>
-                    "Native language... means the language normally used by that individual... in the home or learning environment."
-                </blockquote>
-                <p>只要你在全英文教学环境（MOI）超过3年，且成绩单上是 <strong>English 9-12</strong> 而非 ESL，你就符合法律上的母语定义。在 CA 系统直接勾选 English 为 First Language，跳出 115+ 的刷题池。</p>
-                <p><span class="tag-red">*风险提示：</span>此策略需 SAT/ACT 阅读 730+ 支撑，否则会产生诚信质疑。</p>
+                <p>符合条件的同学应在 CA 系统直接勾选 English 为 First Language，跳出内卷池。</p>
+                <p><span class="tag-red">*风险提示：</span>此策略需 SAT/ACT 阅读 730+ 支撑。</p>
             `,
             'ap-ib': `
                 <h2>学术硬实力：如何定义“好”？</h2>
-                <p><strong>AP 体系：</strong>8 门 5 分是 Top 20 的入场券。超过后边际效用递减，应转向学术深度。</p>
-                <h3>IB 体系的对冲策略：</h3>
-                <p>招生官深知 IB 预估分存在水分。如果你是 IB 学生，<strong>强烈建议校外自考 3-4 门 AP</strong>（如 AP Lang, AP Micro/Macro）。</p>
-                <p><strong>博弈点：</strong>一张全 5 分的 AP 成绩单是证明你 IB 预估分“真实性”的最强背书，能瞬间拉开你与普通申请者的差距。</p>
+                <p><strong>AP 体系：</strong>8 门 5 分是 Top 20 的入场券。</p>
+                <p><strong>IB 体系对冲：</strong>建议 IB 学生校外自考 3-4 门 AP 作为“真实学术能力”的背书。</p>
             `,
             'waitlist': `
-                <h2>Waitlist 转正：提供“翻案”的核武器</h2>
-                <p><strong>误区：</strong>写一封只有热情的 Love Letter。这会被直接归档。</p>
-                <h3>转正核心：补材料</h3>
-                <p>你需要给招生官一个“借口”去 Committee 帮你翻案。有效的材料包括：</p>
-                <ul>
-                    <li>12 年级下学期更强的 GPA 表现；</li>
-                    <li>新获得的重量级奖项（如 AMC 前 1%, ISEF 进展）；</li>
-                    <li>针对该校特定资源（如某教授的实验室）的最新 Research Plan。</li>
-                </ul>
+                <h2>Waitlist 转正：提供“翻案”的武器</h2>
+                <p>转正的核心不是表忠心，而是<strong>补材料</strong>。你需要给招生官一个“借口”去 Committee 帮你翻案。</p>
             `,
             'activities': `
                 <h2>夏校与竞赛：别花钱买开心</h2>
-                <p><strong>夏校真相：</strong>除了极少数带学分且极难录取的（如芝大夏校、SSP、TASP），绝大多数夏校对申请<strong>零加分</strong>。</p>
-                <h3>核心人设 (Core Identity)：</h3>
-                <p>所有的活动必须指向同一个标签。如果 AO 看完你的材料，三秒钟内总结不出“你是谁”，那你的活动做得再广也是失败的。减法做得越狠，人设越稳。</p>
+                <p>凡是能花钱买到录取的夏校，在申请中基本零加分。AO 现在更看重的是“核心人设 (Core Identity)”。</p>
             `,
             'essay': `
                 <h2>文书：拒绝“自我感动”的成长</h2>
-                <p><strong>避坑指南：</strong></p>
-                <ul>
-                    <li><strong>不要卖惨：</strong>花过多篇幅写困难，会让 AO 觉得你抗压差。</li>
-                    <li><strong>不要写小说：</strong>追求辞藻而忽略了你的 Role（你到底做了什么）。</li>
-                    <li><strong>感悟要落地：</strong>不要谈太空洞的哲学，AO 想看你如何改变了对待世界的方式。</li>
-                </ul>
-                <p><strong>金律：</strong>好的 PS 应该让 AO 在读完后想立刻邀请你喝杯咖啡，而不是想把你送去心理咨询。</p>
+                <p>好的 PS 应该让 AO 在读完后想立刻邀请你喝杯咖啡，而不是想把你送去心理咨询。</p>
             `
         };
 
         function openModal(key) {
-            const body = document.getElementById('modalBody');
-            if (data[key]) {
-                body.innerHTML = data[key];
-                document.getElementById('modalOverlay').style.display = 'flex';
-                document.body.style.overflow = 'hidden'; 
-            } else {
-                console.error('Key not found in data:', key);
-            }
+            document.getElementById('modalBody').innerHTML = data[key];
+            document.getElementById('modalOverlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
         }
 
         function closeModal() {
