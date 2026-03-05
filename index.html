@@ -28,10 +28,43 @@
             position: relative;
         }
 
+        /* 艺术字标题逻辑 */
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff 30%, #5e5e5e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
         h1 { font-size: 3.2rem; margin-bottom: 20px; letter-spacing: -1px; background: linear-gradient(180deg, #fff 0%, #a1a1a6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         p.sub-title { font-size: 1.4rem; color: #a1a1a6; margin-bottom: 30px; line-height: 1.4; }
 
-        /* 3. Apple 风格按钮 */
+        /* 3. 右上角“加入我们”按钮 */
+        .join-us-btn {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            z-index: 999;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border-radius: 20px;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .join-us-btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* 4. Apple 风格按钮 */
         .details-btn {
             color: #0071e3;
             font-size: 1.2rem;
@@ -42,7 +75,7 @@
         .details-btn:hover { text-decoration: underline; }
         .details-btn::after { content: " >"; }
 
-        /* 4. 弹出层 (Modal) 样式 */
+        /* 5. 弹出层 (Modal) 样式 */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -86,9 +119,28 @@
             margin: 20px 0;
             border: 1px solid #333;
         }
+
+        /* 专门为“加入我们”弹窗设计的样式 */
+        .contact-card {
+            text-align: center;
+        }
+        .xhs-id {
+            font-size: 1.8rem;
+            color: #ff453a;
+            margin: 20px 0;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
+
+    <div class="join-us-btn" onclick="openModal('join')">加入我们</div>
+
+    <section>
+        <div class="hero-title">申请靠的是逻辑</div>
+        <div class="hero-title" style="font-size: 4rem; margin-top: -10px; background: linear-gradient(135deg, #86868b 0%, #444 100%); -webkit-background-clip: text;">不是无用功</div>
+        <p class="sub-title" style="margin-top: 20px;">向下滚动，开启升学底层逻辑的深度解析。</p>
+    </section>
 
     <section>
         <h1>申请逻辑的进化</h1>
@@ -139,9 +191,17 @@
 
     <script>
         const data = {
+            'join': `
+                <div class="contact-card">
+                    <h2>联系我们</h2>
+                    <p>如果你认可我们的逻辑，欢迎在小红书上进行深入交流：</p>
+                    <div class="xhs-id">maxzhang07</div>
+                    <p style="color: #86868b;">(maxverstappen13)</p>
+                    <p style="margin-top: 20px;">陪你一起走过这段不自欺欺人的升学路。</p>
+                </div>
+            `,
             'toefl': `
                 <h2>中国人 ≠ 第一语言必须是中文</h2>
-                <img class="image-placeholder" src="https://image.pollinations.ai/prompt/ECFR%20Says:%20English%20First%20Language,%20NOT%20Passport%20Your%20Voice,%20Your%20Language,%20Your%20Terms.%20Modern%20minimalist%20style%20Apple%20aesthetic" alt="ECFR Logic">
                 <p>美国大学对 <strong>First Language</strong> 的定义不看护照、种族和出生地，只看：你最早、最流利、最常用的语言。</p>
                 <h3>豁免逻辑：</h3>
                 <ul>
@@ -149,42 +209,34 @@
                     <li>没上过 ESL、ESOL 这类语言课</li>
                     <li><strong>后果：</strong>一旦提交托福，你就是“ESL Applicant”，即使满分也不加分。</li>
                 </ul>
-                <h3>你的课名决定了你的身份：</h3>
-                <p><span class="tag-green">✅ 这些不是 ESL：</span> English 9-12, Honors English, AP Lang/Lit, IB Lang & Lit, Pre-AP English。</p>
-                <p><span class="tag-red">❌ 这些说明你是 ESL：</span> ESL, ESOL, EAL, ELD, Foundation English。</p>
-                <p><strong>关键风险：</strong>如果不交托福，T15 招生官会严审 SAT/ACT 的 EBRW（阅读写作）。如果 SAT 只有 600 出头却宣称英语是母语，会产生诚信质疑，此时需要 PS 文书支撑人设。</p>
+                <p><strong>关键风险：</strong>如果不交托福，T15 招生官会严审 SAT/ACT 的 EBRW。如果 SAT 分数过低却宣称母语，会产生诚信质疑。</p>
             `,
             'ap-ib': `
                 <h2>学术能力的“天花板”</h2>
                 <p>AP 的保险线是 <strong>8门5分</strong>。达到这个量级后，边际效用递减。</p>
-                <h3>IB 同学的吃亏点：</h3>
-                <p>IB 的预估分在招生官眼里属于 GPA 范畴。只有最后的大考分数才相当于 AP。</p>
-                <p><strong>策略建议：</strong>申请时大多数人只有预估分，建议 IB 同学在校外考几门 AP，用实打实的 5 分作为学术硬背书，对冲预估分可能存在的“水分质疑”。</p>
+                <h3>IB 同学的策略：</h3>
+                <p>IB 的预估分在招生官眼里属于 GPA 范畴。建议 IB 同学在校外考几门 AP，用实打实的 5 分作为学术硬背书，对冲预估分可能存在的“水分质疑”。</p>
             `,
             'waitlist': `
                 <h2>转正：让招生官有借口帮你</h2>
-                <p>很多人误以为 Waitlist 就是硬等。错！转正的核心是<strong>“补材料”</strong>。</p>
-                <p><strong>为什么 Love Letter 没用？</strong> 当 Committee 重审材料时，光凭一腔热爱无法在合议庭上说服其他招生官。你需要更新有含金量的奖项、新的 GPA 提升或重大的课外活动进展，让招生官有“新弹药”帮你去争取位置。</p>
+                <p>转正的核心是<strong>“补材料”</strong>。</p>
+                <p>当 Committee 重审材料时，光凭一腔热爱（Love Letter）无法说服其他招生官。你需要更新有含金量的奖项、新的 GPA 提升或重大的课外活动进展，让招生官有“新弹药”帮你去争取位置。</p>
             `,
             'activities': `
                 <h2>夏校、竞赛与“核心人设”</h2>
                 <h3>1. 夏校不是加分项</h3>
-                <p>大多数夏校只是学习知识的体验。除非是 UChicago 夏校后的 ED0 这种极端例子，否则基本无加分。</p>
-                <h3>2. 竞赛的商业化陷阱</h3>
-                <p>除了 IMO 这种顶级赛事，像 John Locke 等很多竞赛已经高度商业化，大部分只是“花钱买开心”。</p>
-                <h3>3. 核心人设 (Core Identity)</h3>
-                <p>活动不要杂，要和 PS 共享一个核心。<strong>我们的目标是：</strong>让 AO 在看材料写 Reflection 时不用花力气。AO 越方便，你录取的几率越大。</p>
+                <p>大多数夏校只是学习知识的体验。除非是特定学校极具含金量的项目，否则基本无加分。</p>
+                <h3>2. 核心人设 (Core Identity)</h3>
+                <p>活动不要杂，要和 PS 共享一个核心。让 AO 在看材料写 Reflection 时不用花力气，你录取的几率越大。</p>
             `,
             'essay': `
                 <h2>PS 文书：如何搭建一个不写歪的 Frame</h2>
-                <p>常见框架：“以前有问题 a，经过事件 b，得到感悟 c，改善了问题 a”。</p>
                 <h3>三大避坑点：</h3>
                 <ul>
-                    <li><strong>不要卖惨：</strong>花过多篇幅写问题 a。招生官不想看抱怨，过多的负面描写会影响对你的 Reflection。</li>
-                    <li><strong>不要写小说：</strong>写事件 b 时陷入“跌宕起伏”，却不解释你的 Role（角色）和对你成长的影响。</li>
-                    <li><strong>感悟要落地：</strong>不要谈晦涩的哲学或高深定理。招生官想看的是这个感悟和你到底有什么关系。</li>
+                    <li><strong>不要卖惨：</strong>招生官不想看抱怨。</li>
+                    <li><strong>不要写小说：</strong>侧重你的 Role（角色）和对你成长的影响。</li>
+                    <li><strong>感悟要落地：</strong>不要谈晦涩的哲学。招生官想看的是这个感悟和你到底有什么关系。</li>
                 </ul>
-                <p>一言以蔽之：无论什么框架，一定要回到<strong>“自己”</strong>。</p>
             `
         };
 
