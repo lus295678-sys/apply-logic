@@ -15,7 +15,36 @@
             overflow-x: hidden;
         }
 
-        /* 2. 全屏 Section 布局 */
+        /* 2. 左上角 Logo 标识 */
+        .brand-logo {
+            position: fixed;
+            top: 25px;
+            left: 40px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            pointer-events: none; /* 防止遮挡点击 */
+        }
+
+        .brand-logo .main-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .brand-logo .sub-logo {
+            font-size: 0.65rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #86868b;
+            margin-top: 4px;
+        }
+
+        /* 3. 全屏 Section 布局 */
         section {
             height: 100vh;
             display: flex;
@@ -49,7 +78,7 @@
         h1 { font-size: 3.2rem; margin-bottom: 20px; letter-spacing: -1px; background: linear-gradient(180deg, #fff 0%, #a1a1a6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         p.sub-title { font-size: 1.4rem; color: #a1a1a6; margin-bottom: 30px; line-height: 1.5; max-width: 800px; }
 
-        /* 3. 导航按钮 */
+        /* 4. 导航按钮 */
         .nav-group {
             position: fixed;
             top: 30px;
@@ -74,7 +103,6 @@
         .nav-btn:hover { background: #fff; color: #000; }
         .nav-btn.primary { background: #0071e3; border-color: #0071e3; }
 
-        /* 详情按钮 */
         .details-link {
             color: #0071e3;
             font-size: 1.2rem;
@@ -85,7 +113,7 @@
         }
         .details-link:hover { text-decoration: underline; }
 
-        /* 4. 弹窗样式 */
+        /* 5. 弹窗样式 */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -105,7 +133,6 @@
         }
         .close-btn { position: absolute; top: 25px; right: 30px; font-size: 32px; cursor: pointer; color: #86868b; }
         
-        /* 弹窗文字排版 */
         .modal-body { text-align: left; }
         .modal-body h2 { color: #fff; font-size: 2rem; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 15px; }
         .modal-body h3 { color: #0071e3; margin: 20px 0 10px 0; }
@@ -126,15 +153,19 @@
 </head>
 <body>
 
+    <div class="brand-logo">
+        <span class="main-logo">ALRI</span>
+        <span class="sub-logo">Apply for the Logic Research Institute</span>
+    </div>
+
     <div class="nav-group">
-        <div class="nav-btn" onclick="openModal('logic_full')">申请逻辑(全文)</div>
         <div class="nav-btn" onclick="openModal('advice')">给申请者的忠告</div>
         <div class="nav-btn primary" onclick="openModal('join')">联系我们</div>
     </div>
 
     <section>
         <div class="hero-title">申请靠的是逻辑</div>
-        <div class="hero-title" style="font-size: 3.5rem; opacity: 0.5;">不是盲目的拼成绩和活动（不能太差）</div>
+        <div class="hero-title" style="font-size: 3.5rem; opacity: 0.5;">不是盲目的拼成绩和活动</div>
         <p class="sub-title">向下滚动，拆解被 90% 申请者忽略的底层真相。</p>
     </section>
 
@@ -181,7 +212,7 @@
             <div class="nav-btn" onclick="openModal('advice')">查看忠告</div>
             <div class="nav-btn primary" onclick="openModal('join')">联系我们</div>
         </div>
-        <p style="color: #424245; font-size: 0.85rem;">© 2026apply-logic.vercel.app. All rights reserved.</p>
+        <p style="color: #424245; font-size: 0.85rem;">© 2026 apply-logic.vercel.app. All rights reserved.</p>
     </footer>
 
     <div id="modalOverlay" class="modal-overlay" onclick="closeModal()">
@@ -198,75 +229,55 @@
                 <p>用一句：<b>Fake it until you make it.</b></p>
                 <p>核心是“<b>Make it</b>”。</p>
                 <blockquote>
-                    打比方你如果用AI换一个彭于晏的脸这个叫<b>造假</b>，但是你如果只是开了美颜这算是<b>夸大</b>，保留了你的脸。
+                    打个比方你如果用AI换一个彭于晏的脸这个叫<b>造假</b>，但是你如果只是开了美颜这算是<b>夸大</b>，保留了你的脸。
                 </blockquote>
-                <p>美本申请的宗旨是立人设和遵循逻辑，一些学术顶尖的同学被拒的大部分原因也是因为没有严格遵循逻辑。部分成绩不够好的同学们也因此因为此逻辑迈上了其遥不可及的地方</p>
+                <p>美本申请的宗旨是立人设和遵循逻辑，一些学术顶尖的同学被拒的大部分原因也是因为没有严格遵循逻辑。部分成绩不够好的同学们也因此迈上了其遥不可及的地方。</p>
                 <p>所以说进了名校不是终点，而是不自欺欺人的开始。因为你要想办法毕业，以及你就算参加了什么学科辅导，从而毕业，也在你以后的工作中体现的，你不努力，就不会有回报，简单来说就是<b>躲不过初一躲不了十五</b>。</p>
             `,
             'toefl': `
                 <h2>标化逻辑：跳出 ESL 池子</h2>
                 <p>一旦你提交托福成绩，你就自动被归类为“ESL”申请者。AO 会下意识降低对你人文、写作及逻辑表达的预期。</p>
                 <h3>规则利用：</h3>
-                <p>按照34eCFR 300.29中写道In all direct contact with a child (including evaluation of the child), the language normally used by the child in the home or learning environment.所以1L/NL 与你是哪国人无关，只是你最先习得的语言，仅此而已，如果你不交托福，但在 SAT 阅读中展现高分，你就是一个 Native Speaker。考 118 分也改变不了你是个“外国人”的标签，但不考托福，你就是在 CA 系统里洗白了自己的身份。
-建议：t10（hypsm）：750+800
-          t20（uchi）：730+800
-          t25（umich，cmu）：700+800
-          t30（uVA,unc，uf，sd）：（700~650）+800
-          注：SAT EBRW 只有 600 出头，这会产生巨大的逻辑矛盾，甚至引发对诚信的质疑。在 CA里，你需要填写父母的背景。如果父母都在国内工作且不会英语，而你填 English 是第一语言，你需要通过你的PS进行支撑</p>
+                <p>按照34eCFR 300.29中写道：In all direct contact with a child, the language normally used by the child in the home or learning environment. 所以1L/NL 与你是哪国人无关，只是你最先习得的语言。如果你不交托福，但在 SAT 阅读中展现高分，你就是一个 Native Speaker。考 118 分也改变不了你是个“外国人”的标签，但不考托福，你就是在 CA 系统里洗白了自己的身份。</p>
+                <p><b>建议参考分：</b><br>
+                t10 (hypsm): 750+800 | t20 (uchi): 730+800 | t30: 650+800</p>
             `,
             'ap_ib': `
                 <h2>学术对冲：IB 生的自救</h2>
-                <p>IB 预估分属于校内成绩，受老师主观给分和学校名声影响太大。它是“软”的。（声明：像包校那种水平的学校实际上是学生本身就强，不需要“逻辑”的支撑，）但是部分学生也会被t30拒绝</p>
+                <p>IB 预估分属于校内成绩，受老师主观给分影响太大。它是“软”的。</p>
                 <h3>AP 的背书作用：</h3>
-                <p>AP 成绩是全球标准化的，它是“硬”的。如果你有 40+ 的预估分，同时有 4-5 门相关的 <b>AP 5分</b>，你是在告诉 AO：我的水平没有任何注水。8 门 AP 5分是 Top 10 的起步价。多一门无用，少一门则厚度不足。</p>
+                <p>AP 成绩是全球标准化的，它是“硬”的。如果你有 40+ 的预估分，同时有 4-5 门相关的 <b>AP 5分</b>，你是在告诉 AO：我的水平没有任何注水。8 门 AP 5分是 Top 10 的起步价。</p>
             `,
             'activities': `
                 <h2>活动避坑：别被中介收割</h2>
-                <p>1. <b>夏校真相：</b>除了少数如 UChicago ED0 项目，90% 的付费夏校对申请<b>没有任何加分</b>。
-                2. <b>竞赛稀释：</b>John Locke 等商业化竞赛已沦为“花钱买开心”。现在大部分有含金量的例如imo，ipho，但是如果他们有好的名次会直接走pre-admit这条路子。
-                3. <b>逻辑核心：</b>活动不是多就好。要做减法，让所有活动指向一个明确的“人设”，让 AO 总结你的时候不费脑子。</p>
+                <p>1. <b>夏校真相：</b>90% 的付费夏校对申请<b>没有任何加分</b>。<br>
+                2. <b>竞赛稀释：</b>John Locke 等商业化竞赛已沦为“花钱买开心”。<br>
+                3. <b>逻辑核心：</b>活动要做减法，让所有活动指向一个明确的“人设”。</p>
             `,
             'waitlist': `
                 <h2>Waitlist 翻案：给 AO 递子弹</h2>
-                <p>当委员会重审名单时，单纯的“我很爱你们学校”是废话。你需要<b>实质性的更新</b>：</p>
+                <p>单纯的情书没用。你需要<b>实质性的更新</b>：</p>
                 <ul>
                     <li>12 年级下学期更炸裂的 GPA。</li>
                     <li>科研项目的新进展。</li>
- 		    <li>其他对于申请有帮助的活动。</li>
+                    <li>其他对于申请有显著帮助的活动。</li>
                 </ul>
-                <p>你要给支持你的 AO 一个理由，让他能在桌子上拍出证据帮你说服其他人。</p>
+                <p>你要给支持你的 AO 证据，让他能在桌子上拍出弹药帮你说服委员会。</p>
             `,
             'essay': `
                 <h2>文书避坑：拒绝自我感动</h2>
-                <p>1. <b>别卖惨：</b>AO 要找的是未来领袖，不是受害者。花太多篇幅写困难会让文书充满负能量。
-                2. <b>拒绝虚构：</b>别写成没有角色的小说，要清晰呈现你的决策路径。
-                3. <b>感悟落地：</b>感悟要和你的生活轨迹紧密结合，别空谈哲学。</p>
-            `,
-            'logic_full': `
-                <h2>申请逻辑（全文解析）</h2>
-                <p>看到很多同学包括中介对申请认知上的误区，决定写一些出来做个分享，希望能帮助一些学生。 
-1. 标化5052年了，不要交托福了。不建议交托福的主要逻辑是这是一个ESL考试，而有明文规定“如果英文是first language就不用交托福成绩”所以从逻辑上，一旦提交托福，你在招生官眼里就是一个“ESL applicant”，已经有了劣势。即使托福满分也说明不了任何能力，不会有任何“加分”。都知道AP重要，只是很多人不知道多“好”算“好”。AP的保险线是8门5，这之上差距不大。AP这一点上其实读IB的同学们比较吃亏，因为IB预估分在招生官眼里是属于gpa这块的，只有最后的大考分数相当于ap。然而大多人申请的时候只有预估分，所以准备IB的同学还是建议自己校外考几门AP。 
-
-2. Waitlist很多人误以为waitlist就是硬等，其实这是错误的思想。Waitlist转正的核心是“补材料，让招生官看到后帮你提交到committee” 每一环节都非常重要这里要注意，单纯的love letter是没有用的—当committe重审材料，光凭一份对学校的一腔热爱是没法让你转正的。
-
-3夏校很多人以为夏校是加分项，其实不然。大多数夏校只能做一个学习知识的体验，并不会在申请上有任何加分 （极端例子如UChicago夏校后的ed0除外）
-
-4 竞赛最顶级的竞赛，如imo等是有用的，不过这部分学生大部分也会走pre-admit这条路。其余的竞赛如john locke等都没用。现在各类竞赛商业化都越来越严重，大部分只是“花钱买个开心”
-
-5. 活动无核心有一些学生会误认为活动做的广一点杂一点，或者只做感兴趣的就好。事实上，活动和ps要共享一个“核心人设”，这样才方便AO在写材料的reflection时不用花太多力气。AO要看的材料很多，我们让ta在看材料写感想时越方便，我们进的几率才会更大。
-
-6.先放一下ps的核心逻辑：要让AO能直接在文中看到你是谁和你怎样成为你。 围绕这个核心逻辑，我们要搭建一个frame/提纲。一个常见的frame是“自我改变/成长”。这里对此frame做个讨论。通常成长的写法是：以前有个问题a，后面经过事件b，得到感悟c，改变/改善了问题a。这个框架本身是符合ps的核心逻辑的，所以没有大的问题，不过很多applicant会在运用这个框架时“写歪”，导致偏离主题，比如： 1. 花过多篇幅写问题a。很多时候作者在写问题时会陷入“自我感动”，认为自己很可怜，好像人人都可以和自己共情。事实上，在问题上过多着墨会让招生官认为你在抱怨，让整篇文书读起来非常负面，从而影响招生官对你的reflection。 2. 写事件b不点题。很多时候学生会致力于让事件读起来“跌宕起伏。” 精彩的事件固然好，然而不清晰阐述这个事件中你的role以及这个事对你的成长造成了了多大影响，那文书就变成了一篇小说。 3. 感悟不深刻。在文书中，招生官希望看到的感悟并不是什么晦涩的哲学思想或者高深的数学定理。很多学生铺垫了一大堆，引出一些“高大上”的感悟，结果忘记点出这感悟和自己到底有什么关系。 一言以蔽之，ps无论写什么框架，一定要回到“自己”。今天分析了一个常见的ps frame。可以comment出你目前构思的frame，我们一起来改进。
-
-
-每年都有无数优秀的申请者因为申请逻辑的错误被top 30拒绝；相应的，也有很多本身背景不够好的申请者通过遵循正确的逻辑而进入及前三十。事实上，只要逻辑正确，任何人都可以拿top 30当保底，无论背景如何。这份逻辑我可以给到你。 有一句话叫“Fake it until you make it”。这里的核心是要“make it”，不然前面的一切都是毫无意义。如果只是进了一个top 30就认为自己“足够优秀”，可以不进步了，那这无疑是自欺欺人。人最可怕的就是自己骗自己。</p>
+                <p>1. <b>别卖惨：</b>AO 要找的是未来领袖，不是受害者。<br>
+                2. <b>拒绝虚构：</b>清晰呈现你的决策路径，而不是写没有角色的小说。<br>
+                3. <b>感悟落地：</b>感悟要和你的生活轨迹紧密结合。</p>
             `,
             'join': `
                 <div style="text-align: center;">
                     <h2>联系我们</h2>
-                    <p>只分享能改变结果的底层逻辑。不做违法/违纪/破坏他人诚信，所谓“无中生有”，任何事情都是在你原有的材料上做的“美颜”，说这说哪：</p>
-                    <div style="font-size: 2.5rem; color: #ff453a; margin: 20px 0; font-weight: 800;">最后美本申请看的还不都是“立人设”</div>
-                    <div style="font-size: 2.5rem; color: #ff453a; margin: 20px 0; font-weight: 800;">小红书：maxzhang07</div>
-                    <p style="color: #86868b;">小红书号：42022384842（momo）</p>
+                    <p>只分享能改变结果的底层逻辑。</p>
+                    <div style="font-size: 2rem; color: #ff453a; margin: 20px 0; font-weight: 800;">美本申请最后看的都是“立人设”</div>
+                    <div style="font-size: 2.5rem; color: #fff; margin: 20px 0; font-weight: 800;">小红书：ALRI</div>
+                    <p style="color: #86868b;">小红书号：maxverstappen13</p>
+                    <p style="color: #86868b;">个人号：42022384842</p>
                 </div>
             `
         };
@@ -284,4 +295,3 @@
     </script>
 </body>
 </html>
-
